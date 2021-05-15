@@ -1,6 +1,6 @@
 --*************************************************************************--
 -- Title: Assignment06
--- Author: YourNameHere
+-- Author: Michael Yu
 -- Desc: This file demonstrates how to use Views
 -- Change Log: When,Who,What
 -- 2021-05-14,MYu,Created File

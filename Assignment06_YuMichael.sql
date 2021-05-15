@@ -3,7 +3,7 @@
 -- Author: YourNameHere
 -- Desc: This file demonstrates how to use Views
 -- Change Log: When,Who,What
--- 2021-05-09,MYu,Created File
+-- 2021-05-14,MYu,Created File
 --**************************************************************************--
 Begin Try
 	Use Master;
@@ -412,7 +412,7 @@ As
 		, [i].[Count]
 		, [e].[EmployeeID]
 		, [e].[EmployeeFirstName] + ' ' + [e].[EmployeeLastName] AS [Employee]
-		, [v].[Manager]
+		, [m].[EmployeeFirstName] + ' ' + [m].[EmployeeLastName] AS [Manager]
 	From dbo.vCategories As c
 		Inner Join dbo.vProducts As p
 			On c.CategoryID = p.CategoryID
@@ -420,8 +420,8 @@ As
 			On p.ProductID = i.ProductID
 		Inner Join dbo.vEmployees As e
 			On e.EmployeeID = i.EmployeeID
-		Inner Join dbo.vEmployeesByManager As v
-			On e.EmployeeFirstName + ' ' + e.EmployeeLastName = v.Employee
+		Inner Join dbo.vEmployees As m
+			On m.EmployeeID = e.ManagerID
 	Order By [CategoryName], [ProductName];
 go
 
